@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Consulta de Personas</title>
+</head>
+<body>
+    <h1>Buscar persona</h1>
+    <form method="POST">
+        <input type="text" name="filtro" placeholder="Nombre o apellido" required>
+        <button type="submit">Buscar</button>
+    </form>
+
+    {% if resultados %}
+        <h2>Resultados</h2>
+        <table border="1">
+            <thead>
+                <tr>
+                    {% for col in columnas %}
+                        <th>{{ col }}</th>
+                    {% endfor %}
+                </tr>
+            </thead>
+            <tbody>
+                {% for fila in resultados %}
+                    <tr>
+                        {% for item in fila %}
+                            <td>{{ item }}</td>
+                        {% endfor %}
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    {% endif %}
+</body>
+</html>
