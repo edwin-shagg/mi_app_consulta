@@ -8,7 +8,7 @@ def obtener_datos(filtro):
     conn = sqlite3.connect("base_datos.db")
     cursor = conn.cursor()
     query = """
-        SELECT * FROM mi_tabla
+        SELECT * FROM base_datos
         WHERE nombre LIKE ? OR apellido LIKE ?
     """
     like_filtro = f"%{filtro}%"
